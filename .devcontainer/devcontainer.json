@@ -1,0 +1,36 @@
+{
+    "name": "mydevcontainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "mounts": [
+        "source=${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind",
+        "source=${localEnv:USERPROFILE}/.ssh/id_rsa,target=/root/.ssh/id_rsa,type=bind",
+        "source=${localEnv:USERPROFILE}/.ssh/id_rsa.pub,target=/root/.ssh/id_rsa.pub,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+			},
+            
+			"extensions": [
+                "ms-python.python",
+				"ms-python.vscode-pylance",
+                "mhutchie.git-graph"
+			]
+		}
+	},
+    "runArgs": [
+        "--gpus", 
+        "all"
+    ],
+    "postCreateCommand": "chmod 600 /root/.ssh/id_rsa && ssh-agent bash -c 'ssh-add /root/.ssh/id_rsa; git clone git@github.com:PARKCHEOLHEE-lab/debugvisualizer.git'",
+    "remoteUser": "root"
+}
