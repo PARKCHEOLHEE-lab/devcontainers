@@ -12,28 +12,25 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-				"python.linting.enabled": true,
-				"python.linting.pylintEnabled": true,
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+                "editor.wordWrap": "wordWrapColumn",
+                "editor.wordWrapColumn": 120
 			},
-            
+
 			"extensions": [
                 "ms-python.python",
 				"ms-python.vscode-pylance",
                 "mhutchie.git-graph",
                 "ms-python.debugpy",
                 "hediet.debug-visualizer",
-                "Meezilla.json"
+                "Meezilla.json",
+                "njpwerner.autodocstring"
 			]
 		}
 	},
     "runArgs": [
-        "--gpus", 
+        "--gpus",
         "all"
     ],
-    "postCreateCommand": "chmod 600 /root/.ssh/id_rsa && ssh-agent bash -c 'ssh-add /root/.ssh/id_rsa; git clone git@github.com:PARKCHEOLHEE-lab/debugvisualizer.git'",
+    "postCreateCommand": "pre-commit install && chmod 600 /root/.ssh/id_rsa && ssh-agent bash -c 'ssh-add /root/.ssh/id_rsa; git clone git@github.com:PARKCHEOLHEE-lab/debugvisualizer.git'",
     "remoteUser": "root"
 }
