@@ -23,7 +23,8 @@
                 "ms-python.debugpy",
                 "hediet.debug-visualizer",
                 "Meezilla.json",
-                "njpwerner.autodocstring"
+                "njpwerner.autodocstring",
+                "ms-azuretools.vscode-docker"
 			]
 		}
 	},
@@ -31,11 +32,6 @@
         "--gpus",
         "all"
     ],
-    "postCreateCommand": [
-        "pre-commit install",
-        "chmod 600 /root/.ssh/id_rsa",
-        "ssh-agent bash -c 'ssh-add /root/.ssh/id_rsa'",
-        "git clone git@github.com:PARKCHEOLHEE-lab/debugvisualizer.git"
-    ],
+    "postCreateCommand": "./post-create-command.sh",
     "remoteUser": "root"
 }
