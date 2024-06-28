@@ -13,7 +13,9 @@
         "vscode": {
             "settings": {
                 "editor.wordWrap": "wordWrapColumn",
-                "editor.wordWrapColumn": 120
+                "editor.wordWrapColumn": 120,
+                "terminal.integrated.shell.linux": "/bin/zsh"
+
 			},
 
 			"extensions": [
