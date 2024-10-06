@@ -1,3 +1,5 @@
+// https://github.com/PARKCHEOLHEE-lab/mydevcontainer/blob/main/.devcontainer/devcontainer.json
+
 {
     "name": "mydevcontainer",
     "build": {
@@ -15,9 +17,7 @@
                 "editor.wordWrap": "wordWrapColumn",
                 "editor.wordWrapColumn": 120,
                 "terminal.integrated.shell.linux": "/bin/zsh"
-
 			},
-
 			"extensions": [
                 "ms-python.python",
 				"ms-python.vscode-pylance",
