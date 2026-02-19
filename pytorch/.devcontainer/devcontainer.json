@@ -28,7 +28,8 @@
                 "njpwerner.autodocstring",
                 "ms-azuretools.vscode-docker",
                 "ms-toolsai.jupyter",
-                "eamodio.gitlens"
+                "eamodio.gitlens",
+                "charliermarsh.ruff"
 			]
 		}
 	},
