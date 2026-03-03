@@ -1,9 +1,14 @@
 {
-  "name": "nb-generative",
+  "name": "mydevcontainer",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "mounts": [
+      "source=${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind",
+      "source=${localEnv:USERPROFILE}/.ssh/id_rsa,target=/root/.ssh/id_rsa,type=bind",
+      "source=${localEnv:USERPROFILE}/.ssh/id_rsa.pub,target=/root/.ssh/id_rsa.pub,type=bind"
+  ],
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
